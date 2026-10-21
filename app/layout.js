@@ -1,6 +1,7 @@
 import { ClerkProvider, SignInButton, UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "ShortAI - AI Video Generator",
@@ -17,14 +18,20 @@ export default async function RootLayout({ children }) {
             <a href="/" className="text-xl font-bold">🎬 ShortAI</a>
 
             {userId ? (
-              <UserButton />
-            ) : (
+              <div className="flex items-center gap-4">
+                <Link href="/dashboard" className="text-gray-300 hover:text-white">
+                  Dashboard
+                </Link>
+                <UserButton />
+              </div>
+              ) : (
               <SignInButton mode="modal">
                 <button className="bg-white text-black px-4 py-2 rounded-lg font-medium">
                   Sign in
                 </button>
               </SignInButton>
-            )}
+              )
+            }
           </header>
           {children}
         </body>
