@@ -18,6 +18,7 @@ export const videos = pgTable("videos", {
     .notNull()
     .references(() => users.id, { onDelete: "cascade" }),
   topic: text("topic").notNull(),
+  title: varchar("title", { length: 255 }),
   style: varchar("style", { length: 100 }),
   scenes: jsonb("scenes"),
   status: varchar("status", { length: 50 }).notNull().default("pending"),

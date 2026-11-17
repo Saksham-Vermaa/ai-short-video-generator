@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getOrCreateUser } from "@/lib/user";
 
 export default async function Dashboard() {
@@ -9,6 +10,12 @@ export default async function Dashboard() {
         <div>
           <h1 className="text-3xl font-bold">Welcome, {user?.name} 👋</h1>
           <p className="text-gray-400 mt-2">Your AI videos will appear here.</p>
+          <Link
+            href="/dashboard/create"
+            className="inline-block mt-4 bg-white text-black font-semibold rounded-lg px-5 py-2"
+          >
+            + Create video
+          </Link>
         </div>
 
         <div className="bg-gray-900 border border-gray-800 rounded-xl px-5 py-3 text-center">
